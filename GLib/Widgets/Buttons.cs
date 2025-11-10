@@ -2,12 +2,13 @@ using System.Numerics;
 
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface;
+using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
 
-namespace GLib.Widgets; 
+namespace GLib.Widgets;
 
 public static class Buttons {
-	public static float CalcSize() => UiBuilder.IconFont.FontSize + ImGui.GetStyle().CellPadding.X * 2;
+	public static float CalcSize() => (UiBuilder.DefaultFontSizePx + ImGui.GetStyle().CellPadding.X * 2) * ImGuiHelpers.GlobalScale;
 	
 	public static bool IconButton(FontAwesomeIcon icon, Vector2? size = null) {
 		if (size == null) {
