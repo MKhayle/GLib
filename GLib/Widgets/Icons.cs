@@ -2,6 +2,7 @@ using System.Numerics;
 
 using Dalamud.Interface;
 using Dalamud.Bindings.ImGui;
+using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
 
 namespace GLib.Widgets;
@@ -26,6 +27,6 @@ public static class Icons {
 		using var _ = ImRaii.PushFont(UiBuilder.IconFont);
 		var result = ImGui.CalcTextSize(icon.ToIconString());
 
-		return result;
+		return result * ImGuiHelpers.GlobalScale;
 	}
 }
